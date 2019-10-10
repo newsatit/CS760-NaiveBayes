@@ -39,10 +39,10 @@ class NaiveBayesClassifier:
         # return delta
 
     def get_likelihood(self, x):
-        likelihood = np.zeros((len(self.labels), 1))
-        x = np.reshape(x, (-1))
+        likelihood = np.zeros((len(self.labels)))
+        x = np.reshape(x, (-1)).astype(np.int)
         for i in range(len(self.labels)):
-            likelihood[i] = np.sum(self.delta[i]*np.log(x))
+            likelihood[i] = np.sum(self.delta[i]*x)
         return likelihood
 
     def get_delta_by_label(self, label):
