@@ -105,23 +105,23 @@ def weka():
 
 labels = ['e', 'j', 's']
 features = list(string.ascii_lowercase) + [' ']
-# df = pd.DataFrame(columns=features + ['label'])
-# for label in labels:
-#     for i in range(0, 10):
-#         fname = 'languageID/%c%d.txt' % (label, i)
-#         dfRow = getAttributes(fname)
-#         dfRow['label'] = label
-#         df = df.append(dfRow, ignore_index=True)
-# dfX = df.loc[:, features]
-# dfY = df.loc[:, 'label']
-# X = dfX.to_numpy()
-# y = dfY.to_numpy()
-#
-# classifier = NaiveBayesClassifier(labels)
-# classifier.fit(X, y)
-# q1_3()
-# q4_6()
-# q7_8()
+df = pd.DataFrame(columns=features + ['label'])
+for label in labels:
+    for i in range(0, 10):
+        fname = 'languageID/%c%d.txt' % (label, i)
+        dfRow = getAttributes(fname)
+        dfRow['label'] = label
+        df = df.append(dfRow, ignore_index=True)
+dfX = df.loc[:, features]
+dfY = df.loc[:, 'label']
+X = dfX.to_numpy()
+y = dfY.to_numpy()
+
+classifier = NaiveBayesClassifier(labels)
+classifier.fit(X, y)
+q1_3()
+q4_6()
+q7_8()
 weka()
 
 print('Done')
